@@ -1,0 +1,356 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Container principal - igual ao estilo da captura (clean, cards, sombras) */
+    .dashboard-container {
+      max-width: 1280px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    /* Header interno */
+    .content-padding {
+      padding: 1.75rem 2rem 2rem 2rem;
+    }
+
+    /* Título e subtítulo */
+    .page-header h1 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.35rem;
+    }
+
+    .page-header p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 1.75rem;
+      border-left: 3px solid #3b82f6;
+      padding-left: 0.75rem;
+    }
+
+    /* Filtro e Novo Chamado - linha superior (como na foto: ao lado do filtro e botão Novo Chamado) */
+    .action-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.75rem;
+      gap: 1rem;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #f8fafc;
+      padding: 0.2rem 1rem 0.2rem 1.2rem;
+      border-radius: 60px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .filter-group label {
+      font-weight: 500;
+      font-size: 0.85rem;
+      color: #334155;
+    }
+
+    .filter-group select {
+      background: transparent;
+      border: none;
+      padding: 0.55rem 0;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #0f172a;
+      outline: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .filter-group select:focus {
+      outline: none;
+    }
+
+    /* botão novo chamado igual ao design: primário com ícone (+), arredondado */
+    .btn-primary {
+      background: #2563eb;
+      border: none;
+      padding: 0.65rem 1.35rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.05s;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      font-family: inherit;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97);
+    }
+
+    /* Tabela moderna exatamente igual à foto: bordas suaves, linhas divisórias, estados e prioridades com badges */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 18px;
+      border: 1px solid #eef2f6;
+      background: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .chamados-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 780px;
+    }
+
+    .chamados-table th {
+      text-align: left;
+      padding: 1rem 1rem;
+      background-color: #f9fafb;
+      color: #334155;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid #e9edf2;
+    }
+
+    .chamados-table td {
+      padding: 1rem 1rem;
+      border-bottom: 1px solid #f0f2f5;
+      vertical-align: middle;
+      color: #1e293b;
+      font-weight: 500;
+    }
+
+    .chamados-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .chamados-table tr:hover td {
+      background-color: #fafcff;
+    }
+
+    /* Estilos de status (badges) */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      background: #eef2ff;
+      color: #1e40af;
+      width: fit-content;
+    }
+
+    .status-em-andamento {
+      background: #fff7e5;
+      color: #b45309;
+    }
+    .status-em-andamento::before {
+      content: "●";
+      font-size: 0.6rem;
+      margin-right: 4px;
+      color: #f97316;
+    }
+
+    .status-aberto {
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-aberto::before {
+      content: "●";
+      font-size: 0.6rem;
+      margin-right: 4px;
+      color: #0e7cbf;
+    }
+
+    .status-concluido {
+      background: #e6f7e6;
+      color: #2b6e2f;
+    }
+    .status-concluido::before {
+      content: "✓";
+      font-size: 0.7rem;
+      margin-right: 4px;
+      font-weight: bold;
+    }
+
+    /* Prioridade badges */
+    .priority-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.2rem 0.65rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      background: #f1f5f9;
+      color: #1e293b;
+    }
+
+    .priority-urgente {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+    .priority-urgente::before {
+      content: "❗";
+      font-size: 0.65rem;
+    }
+
+    .priority-alta {
+      background: #ffedd5;
+      color: #c2410c;
+    }
+    .priority-alta::before {
+      content: "▲";
+      font-size: 0.65rem;
+    }
+
+    .priority-media {
+      background: #e6f0ff;
+      color: #2563eb;
+    }
+    .priority-media::before {
+      content: "–";
+      font-weight: bold;
+    }
+
+    .priority-baixa {
+      background: #e9f5e9;
+      color: #2f6b2f;
+    }
+    .priority-baixa::before {
+      content: "▼";
+      font-size: 0.6rem;
+    }
+
+    /* Botão Ações "Ver" */
+    .btn-ver {
+      background: none;
+      border: 1px solid #cbd5e1;
+      padding: 0.25rem 0.85rem;
+      border-radius: 30px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #2c3e66;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+
+    .btn-ver:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+
+    /* Linha adicional "Todos os Status / Ver" exatamente como aparece no rodapé da tabela na imagem */
+    .filter-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.75rem;
+      padding: 0.5rem 0 0.25rem 0;
+      border-top: 1px solid #ecf3f9;
+    }
+
+    .status-filter-tag {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .status-all {
+      display: inline-flex;
+      align-items: center;
+      background: #f1f5f9;
+      border-radius: 40px;
+      padding: 0.3rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #0f172a;
+      gap: 0.4rem;
+    }
+
+    .status-all span:first-child {
+      font-weight: 600;
+    }
+
+    .status-all span:last-child {
+      background: white;
+      border-radius: 30px;
+      padding: 0.1rem 0.5rem;
+      font-size: 0.7rem;
+    }
+
+    .ver-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #3b82f6;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .ver-link:hover {
+      text-decoration: underline;
+    }
+
+    /* detalhe de responsividade */
+    @media (max-width: 700px) {
+      body {
+        padding: 1rem;
+      }
+      .content-padding {
+        padding: 1.25rem;
+      }
+      .action-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .filter-group {
+        justify-content: space-between;
+      }
+    }
+
+    /* estilo adicional do "filtro rápido" exatamente como descrito */
+    .subtle-note {
+      font-size: 0.7rem;
+      color: #5b6e8c;
+      margin-top: 0.5rem;
+      text-align: right;
+    }

@@ -1,0 +1,248 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9eef3 0%, #dce3ec 100%);
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 2rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Card principal - estilo fiel à imagem: clean, sombreado, cantos suaves */
+        .card {
+            max-width: 760px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+
+        /* Cabeçalho com título principal */
+        .card-header {
+            background-color: #f8fafd;
+            padding: 1.5rem 2rem 0.8rem 2rem;
+            border-bottom: 2px solid #eef2f8;
+        }
+
+        .card-header h1 {
+            font-size: 1.85rem;
+            font-weight: 600;
+            color: #0a2b3e;
+            letter-spacing: -0.3px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .card-header h1 i {
+            color: #2c7da0;
+            font-size: 1.8rem;
+        }
+
+        .sub-line {
+            font-size: 0.95rem;
+            color: #4a627a;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            border-left: 3px solid #2c7da0;
+            padding-left: 12px;
+            font-weight: 450;
+        }
+
+        /* Body do formulário */
+        .card-body {
+            padding: 1.8rem 2rem 2rem 2rem;
+        }
+
+        /* Grupo de campos idêntico ao layout da imagem */
+        .form-group {
+            margin-bottom: 1.7rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: #1e3a4d;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .form-group label i {
+            color: #2c7da0;
+            font-size: 0.9rem;
+            width: 20px;
+        }
+
+        /* Estilo dos inputs e textarea igual à descrição visual (bordas suaves) */
+        input, textarea, select {
+            width: 100%;
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            font-family: inherit;
+            background-color: #fff;
+            border: 1.5px solid #e2e8f0;
+            border-radius: 18px;
+            transition: all 0.2s ease;
+            color: #0a2b3e;
+            outline: none;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.02);
+        }
+
+        input:focus, textarea:focus, select:focus {
+            border-color: #2c7da0;
+            box-shadow: 0 0 0 3px rgba(44,125,160,0.2);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.45;
+        }
+
+        /* campo de prioridade com estilo igual ao select da imagem: medida */
+        select {
+            appearance: none;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%234a627a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        /* duas colunas para ações dos botões, igual ao alinhamento da referência */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-top: 2rem;
+            border-top: 1px solid #eef2f8;
+            padding-top: 1.8rem;
+        }
+
+        /* Botões - estilo moderno e acessível */
+        .btn {
+            padding: 0.75rem 1.9rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: inherit;
+            background-color: #f1f5f9;
+            color: #1f4e6e;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.05);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: #1f6e8c;
+            color: white;
+            box-shadow: 0 2px 5px rgba(31,110,140,0.25);
+        }
+
+        .btn-primary:hover {
+            background-color: #0e5a77;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px -8px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: #edf2f7;
+            border: 1px solid #cbd5e1;
+            color: #2c475c;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+            transform: translateY(-1px);
+        }
+
+        /* pequenos detalhes que imitam a imagem: texto descritivo no campo título */
+        .helper-text {
+            font-size: 0.7rem;
+            color: #6c8aa8;
+            margin-top: 5px;
+            margin-left: 8px;
+            letter-spacing: 0.2px;
+        }
+
+        /* mensagens de validação/toast simples (sutil e amigável) */
+        .toast-msg {
+            background-color: #1e3a4d;
+            color: white;
+            border-radius: 60px;
+            padding: 8px 18px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            position: fixed;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(2px);
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+
+        .toast-msg.show {
+            opacity: 1;
+        }
+
+        /* responsividade para telas pequenas */
+        @media (max-width: 560px) {
+            body {
+                padding: 1rem;
+            }
+            .card-body {
+                padding: 1.5rem;
+            }
+            .card-header {
+                padding: 1.2rem 1.5rem;
+            }
+            .button-group {
+                justify-content: center;
+            }
+            .btn {
+                padding: 0.7rem 1.4rem;
+            }
+        }
+
+        /* Para dar ênfase ao campo prioridade, adicionamos icone inline */
+        .priority-wrapper {
+            position: relative;
+        }
+        hr {
+            margin: 0.5rem 0 1rem;
+            border: 0;
+            height: 1px;
+            background: #eef2f8;
+        }
+
+        .small-note {
+            font-size: 0.7rem;
+            color: #7c8ea0;
+            display: inline-block;
+            margin-left: 28px;
+        }

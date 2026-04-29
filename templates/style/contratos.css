@@ -1,0 +1,293 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #eef2f5;
+      font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
+      padding: 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Container principal - estilo moderno, cards e sombras suaves */
+    .contract-dashboard {
+      max-width: 1400px;
+      width: 100%;
+      background: #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.02);
+      overflow: hidden;
+      transition: all 0.2s;
+    }
+
+    .content-padding {
+      padding: 1.8rem 2rem 2rem 2rem;
+    }
+
+    /* Cabeçalho */
+    .page-header h1 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #0a2540;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.3rem;
+    }
+
+    .page-header > p {
+      font-size: 0.95rem;
+      color: #5b6e8c;
+      margin-bottom: 1.5rem;
+      border-left: 3px solid #3f4ea7;
+      padding-left: 0.85rem;
+      font-weight: 450;
+    }
+
+    /* Banner de atenção (alert box) */
+    .alert-banner {
+      background: #fff8e7;
+      border-left: 5px solid #e92b2b;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .alert-icon {
+      font-size: 1.7rem;
+    }
+
+    .alert-text {
+      font-weight: 500;
+      color: #930e0e;
+      font-size: 0.9rem;
+    }
+
+    .alert-text strong {
+      font-weight: 700;
+      color: #b80000;
+    }
+
+    /* Tabela responsiva */
+    .table-wrapper {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid #edf2f7;
+      background: white;
+      margin-bottom: 1.8rem;
+    }
+
+    .contracts-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      min-width: 1000px;
+    }
+
+    .contracts-table th {
+      text-align: left;
+      padding: 1rem 1.2rem;
+      background-color: #fafcff;
+      color: #2c3e5c;
+      font-weight: 700;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      border-bottom: 1px solid #e6edf4;
+    }
+
+    .contracts-table td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #f0f4fa;
+      vertical-align: middle;
+      color: #1f2b48;
+      font-weight: 500;
+    }
+
+    .contracts-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .contracts-table tr:hover td {
+      background-color: #fefef9;
+      transition: 0.1s;
+    }
+
+    /* Badges de status */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: fit-content;
+      background: #eaf6ef;
+      color: #1f7840;
+    }
+
+    .status-ativo {
+      background: #e3f5ec;
+      color: #0b6e38;
+    }
+    .status-ativo::before {
+      content: "●";
+      font-size: 0.65rem;
+      color: #2b9348;
+      margin-right: 4px;
+    }
+
+    .status-proximo {
+      background: #fff0e0;
+      color: #c45c0c;
+    }
+    .status-proximo::before {
+      content: "⚠️";
+      font-size: 0.65rem;
+      margin-right: 4px;
+    }
+
+    .status-vencido {
+      background: #ffe6e5;
+      color: #bc3f33;
+    }
+    .status-vencido::before {
+      content: "❗";
+      font-size: 0.65rem;
+      margin-right: 4px;
+    }
+
+    /* Estilo para Dias Restantes (destaque especial) */
+    .days-remaining {
+      font-weight: 600;
+    }
+    .days-warning {
+      color: #e67e22;
+      background: #fff1e0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .days-expired {
+      color: #c7252e;
+      background: #ffe8e6;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-weight: 700;
+      font-size: 0.7rem;
+    }
+    .days-normal {
+      background: #ecfdf3;
+      color: #1e7e44;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    /* Estilo para Saldo (h ou R$) */
+    .balance-text {
+      font-weight: 600;
+    }
+
+    /* Botão "Ver Detalhes" idêntico à foto */
+    .btn-details {
+      background: none;
+      border: 1px solid #cfdfed;
+      padding: 0.35rem 1rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #2c6280;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background-color: #ffffff;
+    }
+
+    .btn-details:hover {
+      background-color: #f0f7fe;
+      border-color: #96b8d4;
+      transform: scale(0.98);
+    }
+
+    /* Linha de "Novo Contrato" idêntica à foto (botão estilizado) */
+    .new-contract-row {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .btn-new-contract {
+      background: #3c448f;
+      border: none;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+      font-family: inherit;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-new-contract:hover {
+      background: #1f2958;
+    }
+
+    .btn-new-contract:active {
+      transform: scale(0.97);
+    }
+
+    /* detalhe de rodapé invisível (apenas para manter fidelidade) - opcional */
+    .footer-note {
+      margin-top: 1rem;
+      font-size: 0.7rem;
+      color: #88a0bc;
+      text-align: right;
+      border-top: 1px solid #eef3fc;
+      padding-top: 0.8rem;
+    }
+
+    @media (max-width: 800px) {
+      body {
+        padding: 1rem;
+      }
+      .content-padding {
+        padding: 1.25rem;
+      }
+      .page-header h1 {
+        font-size: 1.6rem;
+      }
+    }
+
+    /* tornando os elementos não clicáveis (sem JS, mas mantém aparência de interação visual) */
+    .btn-details, .btn-new-contract {
+      cursor: default;
+    }
+
+    /* formatação especial para valores e saldo (igual imagem) */
+    .value-money {
+      font-weight: 700;
+      color: #1e4620;
+    }
