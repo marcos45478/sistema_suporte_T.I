@@ -1,0 +1,458 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: #eef2f5;
+}
+
+main {
+    margin-left: 102px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#sidebar_content {
+    padding: 12px;
+}
+
+#user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user_avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user_infos {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_infos span:last-child {
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side_items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+
+.side-item {
+    border-radius: 8px;
+    padding: 14px;
+    cursor: pointer;
+}
+
+.side-item.active {
+    background-color: #155dfc;
+}
+
+.side-item:hover:not(.active),
+#logout_btn:hover {
+    background-color: #e3e9f7;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+}
+
+.side-item.active a {
+    color: #e3e9f7;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #e3e9f7;
+    padding: 12px;
+}
+
+#logout_btn {
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open_btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #155dfc;
+    color: #e3e9f7;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open_btn_icon {
+    transition: transform .3s ease;
+}
+
+.open-sidebar #open_btn_icon {
+    transform: rotate(180deg);
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+}
+
+#sidebar.open-sidebar {
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description {
+    width: 150px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a {
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+#sidebar.open-sidebar ~ main,
+#sidebar.open-sidebar ~ .dashboard-container,
+#sidebar.open-sidebar ~ .contract-dashboard,
+#sidebar.open-sidebar ~ .atendimento-container {
+    margin-left: 15vw;
+}
+
+.atendimento-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    gap: 24px;
+    background-color: #ffffff;
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+.page-header h1 {
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+      margin-bottom: 0.35rem;
+    }
+
+    .page-header p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 1.75rem;
+      border-left: 3px solid #3b82f6;
+      padding-left: 0.75rem;
+    }
+
+    .conteudo p {
+       margin: 5px 0;
+       color: #475569;
+       line-height: 1.6;
+    }
+
+    .form-group{
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 15px 0;
+    }
+
+    .form-group label {
+        font-weight: 500;
+        color: #334155;
+    }
+
+    .form-group input, .form-group textarea {
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        resize: vertical;
+    }
+
+    .form-group select {
+        padding: 10px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        background-color: #fff;
+    }
+
+
+    .form-group textarea {
+        min-height: 100px;
+    }
+
+    .submit-btn {
+        background-color: #155dfc;
+        color: #e3e9f7;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        align-self: flex-start;
+    }
+
+    .submit-btn:hover {
+        background-color: #0f4ae0;
+    }
+
+    .page-header > h1 {
+        font-size: 1.85rem;
+        font-weight: 600;
+        color: #0f172a;
+        letter-spacing: -0.3px;
+        margin-bottom: 0.35rem;
+    }
+
+    .page-header > p {
+        font-size: 0.95rem;
+        color: #475569;
+        margin-bottom: 1.75rem;
+        border-left: 3px solid #3b82f6;
+        padding-left: 0.75rem;
+    }
+
+    .conteudo p {
+       margin: 5px 0;
+       color: #475569;
+       line-height: 1.6;
+    }
+
+
+/* RESPONSIVIDADE*/
+
+/* Tablets (768px até 1024px) */
+@media (max-width: 1024px) {
+    main {
+        padding: 1.5rem;
+        margin-left: 82px;
+    }
+
+    .atendimento-container {
+        max-width: 100%;
+        padding: 2rem;
+        gap: 20px;
+    }
+
+    .page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .form-data label {
+        font-size: 0.8rem;
+    }
+
+    .form-data input,
+    .form-data select,
+    .form-data textarea {
+        padding: 9px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1rem;
+        margin-left: 82px;
+        min-height: auto;
+    }
+
+    #sidebar {
+        min-width: 82px;
+    }
+
+    .atendimento-container {
+        max-width: 100%;
+        padding: 1.5rem;
+        gap: 16px;
+        border-radius: 16px;
+    }
+
+    .page-header h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .page-header p {
+        font-size: 0.9rem;
+        padding-left: 0.75rem;
+    }
+
+    .form-group {
+        padding: 12px;
+        gap: 10px;
+        border-radius: 10px;
+    }
+
+    .form-data label {
+        font-size: 0.75rem;
+        letter-spacing: 0.3px;
+    }
+
+    .form-data input,
+    .form-data select,
+    .form-data textarea {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        border-radius: 6px;
+    }
+
+    .form-data textarea {
+        min-height: 100px;
+    }
+
+    .btn-submit,
+    .btn-primary,
+    .submit-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        width: 100%;
+        border-radius: 6px;
+    }
+
+    .conteudo p {
+        font-size: 0.9rem;
+        margin: 4px 0;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    main {
+        padding: 0.75rem;
+        margin-left: 82px;
+    }
+
+    .atendimento-container {
+        padding: 1rem;
+        gap: 12px;
+        border-radius: 12px;
+    }
+
+    .page-header h1 {
+        font-size: 1.3rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .page-header p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+        padding-left: 0.5rem;
+        border-left: 3px solid #3b82f6;
+    }
+
+    .form-group {
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .form-data label {
+        font-size: 0.7rem;
+    }
+
+    .form-data input,
+    .form-data select,
+    .form-data textarea {
+        padding: 7px 8px;
+        font-size: 0.8rem;
+    }
+
+    .btn-submit,
+    .btn-primary,
+    .submit-btn {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+    }
+
+    .conteudo p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Sidebar responsivo - quando aberto em mobile */
+@media (max-width: 768px) {
+    #sidebar.open-sidebar ~ main,
+    #sidebar.open-sidebar ~ .atendimento-container {
+        margin-left: 100%;
+    }
+
+    #sidebar.open-sidebar {
+        width: 100vw;
+        position: fixed;
+    }
+}

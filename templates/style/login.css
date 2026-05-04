@@ -165,3 +165,100 @@ main {
     justify-content: flex-start;
     gap: 14px;
 }
+
+/* ============ RESPONSIVIDADE ============ */
+
+/* Tablets (768px até 1024px) */
+@media (max-width: 1024px) {
+    main {
+        padding: 15px;
+        padding-left: calc(82px + 15px);
+    }
+
+    #sidebar {
+        min-width: 80px;
+    }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    main {
+        position: relative;
+        padding: 20px;
+        padding-left: 0;
+        z-index: 1;
+        min-height: 100vh;
+    }
+
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        min-width: 80px;
+        z-index: 2;
+    }
+
+    .item-description {
+        font-size: 12px;
+    }
+
+    #sidebar.open-sidebar {
+        min-width: 200px;
+    }
+
+    #sidebar.open-sidebar .item-description {
+        width: 130px;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    body {
+        flex-direction: column;
+    }
+
+    main {
+        padding: 10px;
+        min-height: auto;
+    }
+
+    #sidebar_content {
+        padding: 8px;
+    }
+
+    #user {
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+
+    #user_avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    #user_infos span {
+        font-size: 11px;
+    }
+
+    .side-item {
+        padding: 10px;
+        border-radius: 6px;
+    }
+
+    #open_btn {
+        width: 18px;
+        height: 18px;
+        top: 25px;
+    }
+
+    #logout_btn {
+        padding: 10px;
+        font-size: 12px;
+    }
+}

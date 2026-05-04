@@ -8,9 +8,6 @@
       background: #eef2f5;
       font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, 'Roboto', sans-serif;
       padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
 
@@ -49,7 +46,7 @@
 
     /* Banner de atenção (alert box) */
     .alert-banner {
-      background: #fff8e7;
+      background: #fff0f0;
       border-left: 5px solid #e92b2b;
       border-radius: 16px;
       padding: 1rem 1.5rem;
@@ -291,3 +288,136 @@
       font-weight: 700;
       color: #1e4620;
     }
+
+/* ============ RESPONSIVIDADE ============ */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .contract-dashboard {
+        max-width: 100%;
+        margin-left: 102px;
+        border-radius: 16px;
+    }
+
+    .content-padding {
+        padding: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .contracts-table {
+        font-size: 0.9rem;
+    }
+
+    .btn-new-contract, .btn-details {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .contract-dashboard {
+        max-width: 100%;
+        margin-left: 102px;
+        border-radius: 14px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    .content-padding {
+        padding: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .page-header > p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .alert-banner {
+        padding: 12px;
+        font-size: 0.85rem;
+    }
+
+    .alert-banner h3 {
+        font-size: 0.95rem;
+    }
+
+    .contracts-table {
+        font-size: 0.8rem;
+    }
+
+    .contracts-table th,
+    .contracts-table td {
+        padding: 8px;
+    }
+
+    .btn-new-contract, .btn-details {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .footer-note {
+        font-size: 0.75rem;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .contract-dashboard {
+        margin-left: 82px;
+        border-radius: 12px;
+    }
+
+    .content-padding {
+        padding: 0.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .page-header > p {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+
+    .alert-banner {
+        padding: 10px;
+        border-left: 4px solid #e92b2b;
+    }
+
+    .contracts-table {
+        font-size: 0.75rem;
+        overflow-x: auto;
+    }
+
+    .contracts-table th,
+    .contracts-table td {
+        padding: 6px;
+    }
+
+    .btn-new-contract, .btn-details {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.75rem;
+    }
+
+    .footer-note {
+        font-size: 0.7rem;
+        margin-top: 1rem;
+    }
+}

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style/deshboard.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="style/atendimento.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Atendimento</title>
 </head>
 <body>
     <nav id="sidebar">
@@ -24,7 +24,7 @@
             </div>
     
             <ul id="side_items">
-                <li class="side-item active">
+                <li class="side-item">
                     <a href="dashboard.html">
                         <i class="fa-solid fa-chart-line"></i>
                         <span class="item-description">
@@ -60,7 +60,7 @@
                     </a>
                 </li>
     
-                <li class="side-item">
+                <li class="side-item active">
                     <a href="atendimento.html">
                         <i class="fa-solid fa-clipboard-list"></i>
                         <span class="item-description">
@@ -79,7 +79,7 @@
                 </li>
 
                 <li class="side-item">
-                    <a href="#">
+                    <a href="contratos.html">
                         <i class="fa-solid fa-gear"></i>
                         <span class="item-description">
                             Configurações
@@ -104,66 +104,58 @@
     </nav>
 
     <main>
-        <h1>Dashboard</h1>
-        <p>Visão geral do sistema de atendimento</p>
-
-        <div id="cards">
-            <div class="cards-row">
-                <div class="card" id="card-1">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-ticket" style="color: #f54a00;"></i>
-                    </div>
-                    <h4>Chamados Abertos</h4>
-                    <p class="card-value">2</p>
-                    <h5>Aguardando atendimento</h5>
-                </div>
-
-                <div class="card" id="card-2">
-                    <div class="card-icon">
-                        <i class="fa-regular fa-clock" style="color: #155dfc;"></i>
-                    </div>
-                    <h4>Em Andamento</h4>
-                    <p class="card-value">5</p>
-                    <h5>Atendimento em progresso</h5>
-                </div>
-
-                <div class="card" id="card-3">
-                    <div class="card-icon">
-                        <i class="fa-regular fa-square-check" style="color: #00a63e;"></i>
-                    </div>
-                    <h4>Concluídos</h4>
-                    <p class="card-value">2</p>
-                    <h5>Atendimentos finalizados</h5>
-                </div>
-
-                <div class="card" id="card-4">
-                    <div class="card-icon">
-                        <i class="fa-solid fa-file-contract" style="color: #6b6b6b;"></i>
-                    </div>
-                    <h4>Contratos Ativos</h4>
-                    <p class="card-value">3</p>
-                    <h5>Contratos em vigor</h5>
-                </div>
-            </div>
-        </div>
-            <div class="conteine-grafico">
-            <div id="grafico" class="filho">
-                <h5>Chamados por Status</h5>
-                <canvas id="myChart"></canvas>
-            </div>
-
-            <div id="alertas" class="filho">
-                <h4>Alertas</h4>
-                <div class="alert">
-                    <i class="fa-solid fa-triangle-exclamation" style="color: #f54a00;"></i>
-                    <h3>Chamado #1234 - Urgente</h3>
-                    <p>O chamado #1234 está aguardando resposta há mais de 48 horas. Por favor, verifique e tome as medidas necessárias.</p>
-                </div>
-            </div>
-        </div>
+        <div class="atendimento-container">
+    <div class="page-header">
+      <h1>Registro de Atendimento</h1>
+      <p>Registre os serviços realizados</p>
+    </div>
+    <div class="conteudo">
+        <h4>Novo Registro</h4>
+        <p>Preencha o formulário abaixo para criar um novo chamado de atendimento.</p>
         
-</main>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="javascript/deshboard.js"></script>
+        <form id="atendimento-form">
+            <div class="form-group">
+                <label for="titulo">Data do Chamado:</label>
+                <input type="date" id="titulo" name="titulo" required>
+            
+
+            
+                <label for="horas">Horas Trabalhadas:</label>
+                <input type="time" id="horas" name="horas" required>
+            </div>
+
+            <div class="form-group">
+                <label for="prioridade">Contrato:</label>
+                <select id="prioridade" name="prioridade" required>
+                    <option value="">Selecione o contrato</option>
+                    <option value="baixa">Prefeitura Municipal de Santos - C001</option>
+                    <option value="media">Câmara Municipal de Guarujá - C002</option>
+                </select>
+                
+                <div class="form-group">
+                    <label for="chamado">Chamado (Opcional):</label>
+                    <select id="chamado" name="chamado" required>
+                        <option value="">Nenhum</option>
+                        <option value="T001">T001 - Erro no Sistema de ponto eletrônico</option>
+                        <option value="T002">T002 - Solicitção de novo  usuário no sistema</option>
+                        <option value="T003">T003 - Relatório mensal de folha de pagamento</option>
+                        <option value="T004">T004 - Backup de servidor</option>
+                        <option value="T005">T005 - Impressora não funcionando</option>
+                    </select>
+
+                    <div class="form-group">
+                        <label for="descricao">Descrição do Atendimento:</label>
+                        <textarea id="descricao" name="descricao" rows="4" placeholder="Descreva o detalhadamente o serviço prestado" required></textarea>
+
+                        <input type="file" multiple>
+            </div>
+
+            <button type="submit" class="submit-btn">Criar Chamado</button>
+        </form>
+
+    </div>
+
+    
+    <script src="javascript/atendimento.js"></script>
 </body>
 </html>

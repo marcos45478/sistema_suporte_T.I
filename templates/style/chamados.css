@@ -8,9 +8,6 @@
       background: #eef2f5;
       font-family: 'Segoe UI', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Roboto', sans-serif;
       padding: 2rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       min-height: 100vh;
     }
 
@@ -354,3 +351,187 @@
       margin-top: 0.5rem;
       text-align: right;
     }
+
+/* ============ RESPONSIVIDADE APRIMORADA ============ */
+
+/* Tablets (768px até 1024px) */
+@media (max-width: 1024px) {
+    body {
+        padding: 1.5rem;
+    }
+
+    .dashboard-container {
+        max-width: 100%;
+        margin-left: 102px;
+        border-radius: 20px;
+    }
+
+    .content-padding {
+        padding: 1.5rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .action-bar {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 10px;
+    }
+}
+
+/* Mobile (até 768px) */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .dashboard-container {
+        max-width: 100%;
+        margin-left: 102px;
+        border-radius: 16px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    .content-padding {
+        padding: 1rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .page-header p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .action-bar {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-group {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    table {
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    tbody td {
+        display: block;
+        padding: 0.5rem;
+        text-align: right;
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    tbody td:before {
+        content: attr(data-label);
+        float: left;
+        font-weight: 600;
+        color: #334155;
+    }
+}
+
+/* Mobile pequeno (até 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 0.75rem;
+    }
+
+    .dashboard-container {
+        margin-left: 82px;
+        border-radius: 12px;
+    }
+
+    .content-padding {
+        padding: 0.8rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.2rem;
+    }
+
+    .page-header p {
+        font-size: 0.8rem;
+        padding-left: 0.5rem;
+    }
+
+    .action-bar {
+        gap: 0.5rem;
+    }
+
+    .filter-group {
+        padding: 0.3rem 0.8rem;
+    }
+
+    .filter-group label {
+        font-size: 0.75rem;
+    }
+
+    .filter-group select {
+        font-size: 0.8rem;
+    }
+
+    .btn-primary {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 6px;
+    }
+
+    table {
+        font-size: 0.75rem;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+
+    .subtle-note {
+        font-size: 0.65rem;
+    }
+}
